@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&family=Outfit:wght@600;700&display=swap');
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Roboto Mono", monospace;
+
+  --color-bg-deep: #05070a;
+  --color-bg-panel: rgba(13, 17, 23, 0.85);
+  --color-accent-glow: #00f2ff;
+  --color-accent-warm: #ff8c00;
+  --color-text-main: #e6edf3;
+  --color-text-dim: #848d97;
+  --color-border-color: rgba(0, 242, 255, 0.2);
+}
+
+body {
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+@layer components {
+  .glass-panel {
+    background-color: var(--color-bg-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border-color);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .panel-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin-bottom: 12px;
+    border-left: 2px solid var(--color-accent-glow);
+    padding-left: 8px;
+  }
+  .control-btn {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid var(--color-border-color);
+    color: var(--color-text-main);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .control-btn:hover {
+    background-color: rgba(0, 242, 255, 0.1);
+  }
+  .active-btn {
+    background-color: var(--color-accent-glow);
+    color: var(--color-bg-deep);
+    font-weight: bold;
+  }
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .data-label {
+    color: var(--color-text-dim);
+  }
+  .data-value {
+    font-family: var(--font-mono);
+    color: var(--color-accent-glow);
+  }
+}
+
+/* Leaflet dark mode overrides */
+.leaflet-container {
+  background: var(--color-bg-deep) !important;
+  font-family: var(--font-sans) !important;
+}
+.leaflet-bar a {
+  background-color: var(--color-bg-panel) !important;
+  color: var(--color-text-main) !important;
+  border-color: var(--color-border-color) !important;
+}
+.leaflet-bar a:hover {
+  background-color: rgba(0, 242, 255, 0.1) !important;
+}
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+  color: var(--color-accent-glow) !important;
+}

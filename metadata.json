@@ -1,0 +1,6 @@
+{
+  "name": "SideLineLabs DroneOps",
+  "description": "Drone flight path organization, imagery storage, and 3D mapping with AI-powered Google Maps grounding.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}
